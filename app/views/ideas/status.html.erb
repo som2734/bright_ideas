@@ -1,0 +1,13 @@
+<p><a href="/bright_ideas">Bright Ideas</a></p>
+<hr>
+<% @liked_idea.each do |l| %>
+  <p><a href="/users/<%= l.user.id %>"><%= l.user.name %></a> says:</p>
+  <p class='content'><%= l.content %></p>
+<% end %>
+
+<h4>People who liked this:</h4>
+<ul>
+  <% @likes.each do |x| %>
+    <li><b>Alias:</b> <%= x.user.alias %> | <b>Name:</b> <%= x.user.name %></li>
+  <% end %>
+</ul>

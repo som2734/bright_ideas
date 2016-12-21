@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.form_wrap {
+  width: 50%;
+  display: flex;
+  margin: 0 40px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+h1 {
+  /*color: #0DA4C7;*/
+  color: #0892BA;
+}
+
+.form_wrap > fieldset {
+  border-radius: 12px;
+  border: 2px solid lightgreen;
+  padding: 16px;
+  flex-wrap: wrap;
+}
+
+.form_head {
+  /*color: #2ABF69;*/
+  color: #0892BA;
+}
+.btn_1 {
+  background-color: #2CAFCD;
+  border: 1px solid #2CAFCD;
+  border-radius: 4px;
+  color: white;
+  padding: 4px 10px;
+}
+
+.flash_err {
+  color: #BA0813;
+}
+
+.flash_wrap {
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.flash_wrap > li {
+  display: flex;
+  flex-basis: 1;
+}
+
+#notice {
+  margin-left: 95px;
+  margin-right: -20px;
+  width: 30%;
+}

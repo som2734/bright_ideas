@@ -1,0 +1,27 @@
+<h1>Welcome <%= @user.name %>!</h1>
+
+<div class="">
+  <form action="/bright_ideas" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <input type="text" name="idea[content]" placeholder="Post something here...">
+    <input type="hidden" name="idea[user_id]" value="<%= @user.id %>">
+    <input type="submit" name="submit" value="Idea!">
+  </form>
+</div>
+<% if flash[:notice] %>
+  <p class='like_flash'><%= flash[:notice] %></p>
+<% end %>
+<div class="all_ideas">
+  <% @all_ideas.each do |i| %>
+    <p><a href="/users/<%= i.user.id %>"><%= i.user.name %></a> says:</p>
+    <% if i.user.id == current_user.id %>
+      <a data-method="delete" href="/bright_ideas/<%= i.id %>">Delete</a>
+    <% end %>
+    <p class='content'><%= i.content %></p>
+    <p><a href="/bright_ideas/<%= i.id %>"><%= i.likes.count %> people</a> like this</p>
+    <form action="/likes/<%= i.id %>" method="post" >
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="submit" value="Like" class="like">
+    </form>
+  <% end %>
+</div>

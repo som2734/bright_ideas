@@ -1,0 +1,55 @@
+<%= stylesheet_link_tag "reg" %>
+<h1>Welcome!</h1>
+<div class="flash_wrap">
+  <ul>
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |err| %>
+      <li class="flash_err"><%= err %></li>
+    <% end %>
+  <% end %>
+  </ul>
+  <p><%= flash[:notice] %></p>
+</div>
+<div class="form_wrap">
+  <fieldset><legend class="form_head">Register</legend>
+    <form action='/main' method='post'>
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <p>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="user[email]" placeholder="Enter email">
+      </p>
+      <p>
+        <label for="name">Name</label>
+        <input id="name" type="text" name="user[name]" placeholder="Enter full name">
+      </p>
+      <p>
+        <label for="alias">Alias</label>
+        <input id="alias" type="text" name="user[alias]" placeholder="Enter alias">
+      </p>
+      <p>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="user[password]" placeholder="Enter password">
+      </p>
+      <p>
+        <label for="password_confirmation">Password Confirmation</label>
+        <input id="password_confirmation" type="password" name="user[password_confirmation]" placeholder="Re-enter password">
+      </p>
+      <button type="submit" class="btn_1">Register</button>
+    </form>
+  </fieldset>
+
+  <fieldset><legend class="form_head">Login</legend>
+    <form action='/sessions' method='post'>
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <p>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="Enter email">
+      </p>
+      <p>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="Enter password">
+      </p>
+      <button type="submit" class="btn_1">Login</button>
+    </form>
+  </fieldset>
+</div>

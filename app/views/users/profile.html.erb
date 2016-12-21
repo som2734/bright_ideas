@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag "idea" %>
+<nav>
+  <p><a href="/bright_ideas">Bright Ideas</a></p>
+</nav>
+<ul>
+  <li class="profile_list">Name: <%= @user.name %></li>
+  <li class="profile_list">Alias: <%= @user.alias %></li>
+  <li class="profile_list">Email: <%= @user.email %></li>
+</ul>
+<hr>
+<h4>Total No. of Posts/Ideas: <%= @my_ideas.count %> </h4>
+<h4>Total No. of Likes: <%= @like_count.count %></h4>
